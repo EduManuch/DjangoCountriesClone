@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Список стран</h2>
+    <ol>
+        {% for data in  countries %}
+        <li>{{ data.country }}</li>
+        {% endfor %}
+    </ol>
+</body>
+</html>
