@@ -5,5 +5,5 @@ from MainApp import views
 urlpatterns = [
     path('', views.home),
     path('countries-list/', views.countries_list),
-    path('country-page/<str:country>', views.country_page),
+    path('country/<str:country>', views.country_page),
 ]
