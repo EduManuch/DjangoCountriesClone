@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import json
-from django.http import HttpResponse
+from django.http import HttpResponseNotFound
+# from django.http import HttpResponse
 
 with open("countries.json", 'r') as f:
     countries = json.load(f)
@@ -23,3 +24,4 @@ def country_page(request, country):
             context = {'country': country,
                        'languages': item['languages']}
             return render(request, 'country-page.html', context)
+    return HttpResponseNotFound(f"Страна {country} не найдена")
