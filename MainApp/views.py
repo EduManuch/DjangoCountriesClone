@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import json
-# from django.http import HttpResponse
+from django.http import HttpResponse
 
 with open("countries.json", 'r') as f:
     countries = json.load(f)
@@ -17,3 +17,9 @@ def countries_list(request):
     return render(request, 'countries-list.html', context)
 
 
+def country_page(request, country):
+    for item in countries:
+        if item['country'] == country:
+            context = {'country': country,
+                       'languages': item['languages']}
+            return render(request, 'country-page.html', context)
