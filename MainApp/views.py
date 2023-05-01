@@ -18,6 +18,15 @@ def countries_list(request):
     return render(request, 'countries-list.html', context)
 
 
+def languages_list(request):
+    languages = set()
+    for item in countries:
+        for language in item['languages']:
+            languages.add(language)
+    context = {'languages': languages}
+    return render(request, 'languages-list.html', context)
+
+
 def country_page(request, country):
     for item in countries:
         if item['country'] == country:
